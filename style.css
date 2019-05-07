@@ -1,0 +1,508 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    position: relative;
+    background: url('http://thecodeplayer.com/u/m/b1.png') no-repeat center center fixed;
+    background-size: cover;
+    min-width: 500px;
+    min-height: 200px;
+    color: #fff;
+    font-family: 'Montserrat';
+    height:100vmax;
+    
+  }
+  
+  .bars {
+    /*   background-color:pink; */
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 101;
+    padding-top:9px;
+  }
+  
+  .bar {
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    position: absolute;
+  }
+  
+  span::before,
+  span::after {
+    content: "";
+    display: block;
+    background-color: #fff;
+    width: 100%;
+    height: 4px;
+    position: absolute;
+  }
+  
+  .bar::before {
+    transform: translateY(-9px);
+  }
+  
+  .bar::after {
+    transform: translateY(9px);
+  }
+  
+  .bars.active .bar {
+    background-color: transparent;
+  }
+  
+  .bars.active span::before {
+    animation: top-bar 1s;
+    animation-fill-mode: forwards;
+  }
+  
+  .bars.active span::after {
+    animation: bottom-bar 1s;
+    animation-fill-mode: forwards;
+  }
+  
+  
+  /* Navbar Links CSS */
+  
+  #nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: all 1s;
+    z-index: -1;
+    overflow: hidden;
+    opacity: 0;
+  }
+  
+  #nav a {
+    color: #fff;
+    text-decoration: none;
+    line-height: 70vw;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-indent: 50vw;
+    border-radius: 50%;
+    transition: all .5s;
+  }
+  
+  #nav a:hover {
+    background: #357FFD;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  .visible {
+    z-index: 100 !important;
+    opacity: 1 !important;
+  }
+  
+  .shape-circle {
+    border-radius: 50%;
+    width: 20vw;
+    height: 20vw;
+    top: -10vw;
+    right: -10vw;
+    position: absolute;
+    transition: all 1s ease-in-out;
+    background: #2979FF;
+    box-shadow: 0 0px 0px rgba(4, 26, 62, 0.5);
+  }
+  
+  nav.visible li:first-child {
+    width: 200vw;
+    height: 200vw;
+    top: -100vw;
+    right: -100vw;
+    z-index: 5;
+    transition: all .5s ease-in-out;
+    box-shadow: 0 0px 80px rgba(4, 26, 62, 0.5);
+  }
+  
+  nav.visible li:nth-child(2) {
+    width: 150vw;
+    height: 150vw;
+    top: -75vw;
+    right: -75vw;
+    z-index: 6;
+    transition: all .6s ease-in-out;
+    box-shadow: 0 0px 80px rgba(4, 26, 62, 0.5);
+  }
+  
+  nav.visible li:nth-child(3){
+    width: 100vw;
+    height: 100vw;
+    top: -50vw;
+    right: -50vw;
+    z-index: 7;
+    transition: all .7s ease-in-out;
+    box-shadow: 0 0px 80px rgba(4, 26, 62, 0.5);
+  }
+  
+  nav.visible li:last-child{
+    width: 50vw;
+    height: 50vw;
+    top: -25vw;
+    right: -25vw;
+    z-index: 8;
+    transition: all .8s ease-in-out;
+    box-shadow: 0 0px 80px rgba(4, 26, 62, 0.5);
+  }
+  
+  nav.visible li:first-child a {
+    line-height: 265vw !important;
+      text-indent: 15vw !important;
+  
+  }
+  
+  nav.visible li:nth-child(2) a {
+    line-height: 200vw !important;
+    text-indent:17vw !important;
+  }
+  
+  nav.visible li:nth-child(3) a {
+    line-height: 137vw !important;
+      text-indent: 17vw !important;
+    
+  }
+  
+  nav.visible li:last-child a {
+    line-height: 70vw !important;
+    text-indent:12vw !important;
+  }
+  
+  
+  /* Main Body CSS */
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 60px;
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    text-transform: uppercase;
+    font-size: 120px;
+    letter-spacing:5px;
+    padding-top:40px;
+  }
+  
+  article p {
+    padding-bottom: 15px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+  
+  article a {
+    color: #fff;
+    text-decoration: none;
+    opacity: .2;
+    font-size: 12px;
+  }
+  
+  article a:hover {
+    opacity: .8;
+  }
+  
+  @keyframes top-bar {
+    50% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: rotate(45deg) translateY(0);
+    }
+  }
+  
+  @keyframes bottom-bar {
+    50% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: rotate(-45deg) translateY(0);
+    }
+  }
+  
+  
+  @media screen and (max-width:800px) {
+  
+    h1 {
+      padding-top:80px;
+      font-size: 60px;
+    }
+  }
+  
+  
+
+
+/* Header/Logo Title */
+#header {
+    padding: 5px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 20px;
+  }
+  #logo {
+    float: right;
+    width:200px;
+    height:200px;
+  }
+  #logo2 {
+    padding: 5px;
+    float: left;
+    width:200px;
+    height:200px;
+    background: #555;
+  }
+  /* welcome page*/
+  .welcomeButton{
+    font-family: "Agency FB";
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0 auto;
+    width: 40%;
+    height: 70px;
+    border-radius: 15px;
+    background: rgba(200,40,60,0.9);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+  
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  .welcomeButton:hover{
+    background: #333333;
+  }
+
+  
+  /*login page */
+  form {border: 3px solid #f1f1f1;
+    width: 40%;
+    display: inline-block;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+  }
+  
+  /* Float cancel and signup buttons and add an equal width */
+  .cancelbtn, .signupbtn {
+    float: left;
+    width: 50%;
+  }
+  
+button:hover {
+  opacity: 0.8;
+}
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+ 
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+  
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+}
+
+.slidecontainer {
+    width: 100%;
+  }
+  
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider:hover {
+    opacity: 1;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+  }
+
+
+  /***about style***/
+/* The Modal (background) */
+form {border: 3px solid #f1f1f1;
+    width: 40%;
+    display: inline-block;
+}
+.modalAbout {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+  }
+  
+  /* Modal Content */
+  .modalAbout-content {
+    position: fixed;
+    bottom: 0;
+    background-color: #fefefe;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+  }
+  
+  /* The Close Button */
+  .closeAbout {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .closeAbout:hover,
+  .closeAbout:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modalAbout-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  .modalAbout-body {padding: 2px 16px;}
+  
+  .modalAbout-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  
+  /* Add Animation */
+  @-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0} 
+    to {bottom: 0; opacity: 1}
+  }
+  
+  @keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }

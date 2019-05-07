@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+        <img  id="logo" src="source3.gif" alt="logo" />
+<head>
+        <title>Page Title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+</head>
+
+<body>
+
+    <!--------------------- Header --------------------->
+    <header style="text-align:center" > 
+            <img  id="logo2" src="pacman.jpg" alt="logo2" />       
+            <div id="header" style="text-align:center">
+                    <h1>PACKMAN</h1>
+                    <p>RAZY</p>
+            </div>
+    </header>
+    
+    <!--------------------- Menu --------------------->
+    <br/>
+    <br/>
+    <br/>
+    
+    
+    <!--HamBurger Icon-->
+    <div class="bars"  id="nav-action">
+        <span class="bar"> </span>
+    </div>
+      <!--Navbar Links-->
+      <nav id="nav">
+        <ul >
+          <li class="shape-circle circle-one"><a id="refHome"  href="javascript:void(0)">HomePage</a></li>
+          <li class="shape-circle circle-two"><a id="refLogin" href="javascript:void(0)">Login</a></li>
+          <li class="shape-circle circle-three"><a id="refRegister" href="javascript:void(0)">Register</a></li>
+          <li class="shape-circle circle-five"><a id="myBtn" href="javascript:void(0)">About</a></li>
+        </ul>
+      </nav>
+      
+      
+    
+    <!--------------------- Welcome screen --------------------->
+
+    <div id="welcome" class="content">
+            <button class="welcomeButton" id="registerButton">
+              Register
+            </button>
+            <br/>
+            <button class="welcomeButton" id="loginButton">
+              Login
+            </button>
+            <br/>
+    </div>
+    
+    <!--------------------login-------------------->
+    
+    <div id="login" class="content" style="text-align:center">
+    <h2>Login Form</h2>
+    <form action="/action_page.php">
+        <div class="imgcontainer">
+            <img src="PacmanAvatar.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container" >
+            <label for="uname"><b>Username</b></label>
+            <input type="text" class="input100 loginForm" placeholder="Enter Username" name="uname" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" class="input100 loginForm" placeholder="Enter Password" name="psw" required>
+        
+            <div>
+                <button  id="loginBut">
+                Login
+                </button>
+            </div>
+        </div>
+    </form>
+    </div>
+
+    <!---------------------register----------------->
+    <div id="register" class="content" style="text-align:center">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.js"></script>
+            <form action="/action_page.php" class="form-control">
+                <div >
+                    
+                    <label for="username">Username</label>
+                    <input  class="input100 loginForm" type="text" placeholder="Enter username" name="userName" id="usernameID" required><br>
+                    <label for="password">Password</label>
+                    <input  class="input100 loginForm" type="password" placeholder="Enter password" name="password" id="passwordID" required><br>
+                    <label for="firstname">First name</label>
+                    <input class="input100 loginForm" type="text" placeholder="Enter your first name" name="firstname" required><br>
+                    <label for="lastname">Last name</label>
+                    <input class="input100 loginForm" type="text" placeholder="Enter your last name" name="lastname" required><br>
+                    <label for="email">Email</label>
+                    <input class="input100 loginForm" type="text" placeholder="name@domain.com" name="email" required><br>
+                    <label for="birthday">Birth day</label>
+                    <input class="input100 loginForm" type="date" placeholder="dd/mm/yyyy" name="birthday" required><br>
+                    <button onclick="myFunctiontowelcome()"  id="submit-button" type="submit" class="signupbtn">Register</button>
+                    <button type="reset" class="cancelbtn">Reset</button>
+                </div>
+            </form>
+        </div>
+      
+    <!--------------------- Pacman game --------------------->
+    <div id="gameSettings" class="content" style="text-align:center" hidden class="form-style-8">
+            <form id="settingsForm">
+                <table>
+                    <tr>
+                        <td><h3 style="text-align:center">command</h3> </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>left</td>
+                        <td><input class="gameSetting input100" type="text" id="left" class="controls" onkeydown="getkey(event)"
+                                placeholder="press on your keyboard to set left" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>right</td>
+                        <td><input class="gameSetting input100" type="text" id="right" class="controls" 
+                                placeholder="press on your keyboard to set right" required></td>
+                    </tr>
+                    <tr>
+                        <td>up</td>
+                        <td><input class="gameSetting input100" type="text" id="up" class="controls" 
+                                placeholder="press on your keyboard to set up" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>down</td>
+                        <td><input class="gameSetting input100" type="text" id="down" class="controls" 
+                                placeholder="press on your keyboard to set down" required>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <div class="slidecontainer">
+                        <td>number of balls<br> in the game</td>
+                        <td> <input class="gameSetting input100" type="range" min="50" max="100" value="50" class="slider" id="myRange"></td>
+                        <td>
+                                <p id="value">Value: </p>
+                        </td>
+                        </div>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            pick color for:
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>5 points ball</td>
+                                    <td><input class="gameSetting input100" type="color" id="5points" class="color" required></td>
+                                </tr>
+                                <tr>
+                                    <td>15 points ball</td>
+                                    <td><input class="gameSetting input100" type="color" id="15points" class="color" required></td>
+                                </tr>
+                                <tr>
+                                    <td>25 points ball</td>
+                                    <td><input class="gameSetting input100" type="color" id="25points" class="color" required></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>maximal time for game<br>(in seconds)</td>
+                        <td><input class="gameSetting input100" type="number" min="60" id="gameTime" required></td>
+                    </tr>
+                    <tr>
+                        <td>number of ghosts in the game</td>
+                        <td>
+                            <select id="selectNumOfGhosts"  required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+
+                    </tr>
+                </table>
+                <button id="startGameButton" type="submit">Set and Play!</button>
+                <button type="button" onclick="setRandom()">random settings</button>
+                <button type="reset" >Reset</button>
+            </form>
+        </div>
+
+
+      <div id="game" class="content">
+
+            SCORE:
+            <input id="lblScore" type="text"/>
+            <br/>
+            TIME:
+            <input id="lblTime" type="text"/>
+            <br/>
+            <canvas id="canvas" height="600" width="600"></canvas>
+      </div>
+    
+        <!--------------------- About --------------------->
+
+<!-- The Modal -->
+
+    <div id="myModal2" class="modalAbout">
+
+        <!-- Modal content -->
+        <div class="modalAbout-content">
+          <div class="modalAbout-header">
+            <span class="closeAbout">&times;</span>
+            <h2>Modal Header</h2>
+          </div>
+          <div class="modalAbout-body">
+            <p>Some text in the Modal Body</p>
+            <p>Some other text...</p>
+          </div>
+          <div class="modalAbout-footer">
+            <h3>Modal Footer</h3>
+          </div>
+        </div>
+      
+    </div>
+
+        <!--------------------- Footer --------------------->
+        <footer style="text-align:center">
+                <h3>For any questions please contact us :</h3>
+                <p>Contact information: <a href="mailto:razyal@post.bgu.ac.il">razyal@post.bgu.ac.il</a>.</p>
+        </footer>
+              
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="pacman_js.js"></script>
+<script type="text/javascript" src="val.js"></script>
+
+<script>
+// Setting up the Variables
+var bars = document.getElementById("nav-action");
+var nav = document.getElementById("nav");
+//setting up the listener
+bars.addEventListener("click", barClicked, false);
+nav.addEventListener("click", barClicked, false);
+//setting up the clicked Effect
+function barClicked() {
+  bars.classList.toggle('active');
+  nav.classList.toggle('visible');
+}
+
+</script>
+
+<script>
+        // Get the modal
+        var modal = document.getElementById('register');
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        </script>
+
+        
+      <script>
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("value");
+        output.innerHTML = slider.value;
+        
+        slider.oninput = function() {
+          output.innerHTML = this.value;
+        }
+        </script>
+
+<script>
+        // Get the modal
+        var modal = document.getElementById('myModal2');
+        
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("closeAbout")[0];
+        
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        </script>
+        
+        <script>
+                function myFunctiontowelcome() {
+                    $('#register').hide();
+                    $('#welcome').show();
+                }
+        </script>
+<script>
+        function getkey(event) {
+          var x = event.key;
+          document.getElementById("demo").innerHTML = "The pressed key was: " + x;
+        }
+        </script>
+        
+
+</body>
+
+</html>
